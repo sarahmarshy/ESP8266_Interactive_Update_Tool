@@ -7,7 +7,7 @@ import sys
 import os
 from Tkinter import *
 import Tkinter
-from tkMessageBox import askyesno, showwarning, showerror
+from tkMessageBox import askyesno, showwarning, showerror, showinfo
 
 class mainWindow(object):
     def __init__(self,master):
@@ -49,10 +49,10 @@ class mainWindow(object):
         com = self.comEntry.get()
         dir = self.fileEntry.get()
         user1_file = os.path.join("newest","user1.bin")
-        files = [os.path.join(dir, "bin",file) for file in ["boot_v1.1.bin", user1_file, "blank.bin", "blank.bin"]]
+        files = [os.path.join(dir, "bin",file) for file in ["boot_v1.1.bin", user1_file, "esp_init_data_default.bin", "blank.bin"]]
         if any(not(os.path.exists(file)) for file in files):
             list = "\n".join(files)
-            showerror("Fatal Error", "One of these files does not exist:\n%s"%list)
+            showerror("Fatal Error", "Did you choose the correct root directory?\nOne of these files does not exist:\n%s"%list)
             return
 
         commands = []
@@ -61,7 +61,7 @@ class mainWindow(object):
         commands.append(self.format_command(com, "0x7C000", files[2]))
         commands.append(self.format_command(com, "0x7E000", files[3]))
 
-        for c in commands:
+        for i,c in enumerate(commands):
             success = False
             while not success:
                 print("calling: "+" ".join(c))
@@ -74,8 +74,10 @@ class mainWindow(object):
                     askyesno("Warning", "Failed to connect.\nAre you sure your board is connected to the specified port?\n"
                                            "If so, try power cycling.")
                 else:
-                    askyesno("Power Cycle", "Success. Power cycle your board to continue.")
+                    if(i!=3):
+                        askyesno("Power Cycle", "Success. Power cycle your board to continue.")
                     success = True
+        showinfo("Success", "Firmware successfully updated!")
 
     def format_command(self,com, hex, file):
         return ["python", "esptool.py", "-p", com, "-b", "9600", "write_flash", hex, file]
