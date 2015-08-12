@@ -72,8 +72,9 @@ class mainWindow(object):
                 p.stdout.close()
                 p.wait()
                 if p.poll()!=0:
-                    askyesno("Warning", "Failed to connect.\nAre you sure your board is connected to the specified port?\n"
-                                           "If so, try power cycling.")
+                    if not askyesno("Warning", "Failed to connect.\nAre you sure your board is connected to the specified port?\n"
+                                           "If so, try power cycling."):
+                        return
                 else:
                     if(i!=3):
                         askyesno("Power Cycle", "Success. Power cycle your board to continue.")
