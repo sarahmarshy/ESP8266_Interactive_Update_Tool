@@ -30,7 +30,7 @@ class mainWindow(object):
         browseButton.pack(side = LEFT)
 
         labelText=StringVar()
-        labelText.set("Port of mbed (COMX or dev/sda/..)")
+        labelText.set("Port of device (COMX or dev/sda/...)")
         labelDir=Label(comPortFrame, textvariable=labelText, justify = LEFT)
         labelDir.pack(side = LEFT)
 
