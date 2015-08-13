@@ -1,6 +1,6 @@
 # ESP8266_Interactive_Update_Tool
 A companion tool to [this repository](https://github.com/themadinventor/esptool) for updating the firmware of ESP8266.
-It is intended to be  run in the same directory as esptool.py.
+It is intended to execute in the same directory as esptool.py.
 
 ##update_gui.py 
 An interactive GUI for updating the firmware.
