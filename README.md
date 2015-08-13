@@ -13,7 +13,7 @@ A command line tool. Use ```python update.py --help``` for usage.
 
 Follow the instructions outlined [here](https://developer.mbed.org/teams/ESP8266/wiki/Firmware-Update).
 
-When you get to the section about running esptool commands, launch this script in the same directory as esptool.py.
+When you get to the section about running esptool commands, stop there, and launch this script in the same directory as esptool.py.
 
 In both programs, you will need to know the root directory for the firmware binaries, as well as the serial port where your device is connected. The root directory of the firmware means the parent directory of the "bin" and "at" directories. 
 Its struture should look like:
