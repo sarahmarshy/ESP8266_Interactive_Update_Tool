@@ -1,7 +1,6 @@
 #Update script
 #Intended to be run in the same directory as https://github.com/themadinventor/esptool
 #Author: Sarah Marsh
-#if on linux, install tkinter with: sudo apt-get install python-tk
 
 import subprocess
 import os
