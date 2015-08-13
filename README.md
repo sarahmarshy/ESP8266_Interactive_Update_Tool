@@ -1,7 +1,11 @@
 # ESP8266_Interactive_Update_Tool
 A companion tool to https://github.com/themadinventor/esptool for updating the firmware of ESP8266.
 It is intended to be  run in the same directory as esptool.py.
-If on linux, install tkinter with: sudo apt-get install python-tk.
+
+update_gui.py is, as you might guess, an interactive GUI for updating the firmware.
+update.py is a command line tool. Use ```python update.py --help`` for usage. 
+
+If you want to use the GUI version on linux, install tkinter with: sudo apt-get install python-tk. Tkinter works natively on Windows.
 
 Follow the instructions outlined here : https://developer.mbed.org/teams/ESP8266/wiki/Firmware-Update.
 
