@@ -27,3 +27,6 @@ Root Directory
 |------->newest
 |------->v0.20
 ```
+
+
+In addition, the esptool writes binaries to flash to upgrade the firmware. Between each write, the device will need to be power cycled. Power cycle means a complete detachment from the device's power source, not just a processor reset. The program will prompt you multipe times to do this between each flash write, so beware that this program requires some user input while executing.
