@@ -5,7 +5,6 @@
 
 import subprocess
 import os
-from tkMessageBox import askyesno, showwarning, showerror, showinfo
 import argparse
 
 def main():
@@ -22,8 +21,7 @@ def main():
         files = [os.path.join(dir, "bin",file) for file in ["boot_v1.1.bin", user1_file, "esp_init_data_default.bin", "blank.bin"]]
         if any(not(os.path.exists(file)) for file in files):
             list = "\n".join(files)
-            showerror("Fatal Error", "Did you choose the correct root directory?\nOne of these files does not exist:\n%s"%list)
-            return
+            raise RuntimeError("Fatal Error! Did you choose the correct root directory?\nOne of these files does not exist:\n%s"%list)
 
         commands = []
         commands.append(format_command(com, "0x00000", files[0]))
@@ -41,14 +39,14 @@ def main():
                 p.stdout.close()
                 p.wait()
                 if p.poll()!=0:
-                    if not askyesno("Warning", "Failed to connect.\nAre you sure your board is connected to the specified port?\n"
-                                           "If so, try power cycling."):
+                    if not raw_input("Warning! Failed to connect.\nAre you sure your board is connected to the specified port? (Enter 0 if not)\n"
+                                           "If so, try power cycling, then press 1.\n"):
                         return
                 else:
                     if(i!=3):
-                        askyesno("Power Cycle", "Success. Power cycle your board to continue.")
+                        raw_input("Success. Power cycle your board and press ENTER to continue.")
                     success = True
-        showinfo("Success", "Firmware successfully updated!")
+        print("Success! Firmware successfully updated!")
 
     update(args.port, args.root_dir)
 
