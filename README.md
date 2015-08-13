@@ -8,7 +8,7 @@ An interactive GUI for updating the firmware.
 *If you want to use the GUI version on linux, install tkinter with:* sudo apt-get install python-tk. *Tkinter works natively on Windows.*
 
 ##update.py 
-A command line tool. Use ``python update.py --help`` for usage. 
+A command line tool. Use ```python update.py --help``` for usage. 
 
 
 Follow the instructions outlined [here](https://developer.mbed.org/teams/ESP8266/wiki/Firmware-Update).
