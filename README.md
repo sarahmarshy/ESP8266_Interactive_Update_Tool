@@ -5,7 +5,7 @@ It is intended to execute in the same directory as esptool.py.
 ##update_gui.py 
 An interactive GUI for updating the firmware.
 
-*If you want to use the GUI version on linux, install tkinter with:* sudo apt-get install python-tk. *Tkinter works natively on Windows.*
+*If you want to use the GUI version on linux, install tkinter with:* ```sudo apt-get install python-tk```. *Tkinter works natively on Windows.*
 
 ##update.py 
 A command line tool. Use ```python update.py --help``` for usage. 
